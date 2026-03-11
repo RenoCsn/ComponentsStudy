@@ -1,23 +1,12 @@
-import type { ComponentType } from 'react'
 import type { ColorType } from './colorsType'
+import type { ComponentType } from './componentType'
+
+export type TextColorType = 'textPrimary' | 'textSecondary' | 'textDisabled'
+
+export type TypographyColorType = TextColorType | ColorType
 
 export type TypographyType = ComponentType & {
-  variant:
-    | 'body1'
-    | 'body2'
-    | 'button'
-    | 'caption'
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'inherit'
-    | 'overline'
-    | 'subtitle1'
-    | 'subtitle2'
-    | string
-  color?: 'textPrimary' | 'textSecondary' | 'textDisabled' | ColorType
-  align?: 'center' | 'inherit' | 'justify' | 'left' | 'right'
+  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span' | 'b'
+  color?: TypographyColorType
+  align?: 'center' | 'start' | 'justify' | 'left' | 'right' | 'end'
 }

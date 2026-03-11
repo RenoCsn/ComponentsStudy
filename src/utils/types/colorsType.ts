@@ -1,10 +1,7 @@
-export type ColorType = {
-  color:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'info'
-    | 'warning'
-    | string
-}
+export type ColorType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'error'
+  | 'info'
+  | 'warning'
