@@ -34,7 +34,7 @@ export const TypographyComponent: React.FC<TypographyType> = ({
     end: 'text-end',
   }
 
-  const getColor = (color: TypographyColorType | string): string => {
+  const getColor = (color: TypographyColorType | string): string | null => {
     const colorStyles = {
       textPrimary: 'text-[#000000de]',
       textSecondary: 'text-[#00000099]',
@@ -48,14 +48,16 @@ export const TypographyComponent: React.FC<TypographyType> = ({
     }
 
     const mappedColor = colorStyles[color as keyof typeof colorStyles]
-    const textColor = 'text-[#' + color + ']'
-
-    return mappedColor || textColor
+    return mappedColor || null
   }
+
+  const colorGetter = getColor(color)
+  const styleColor = !colorGetter ? { color: color } : {}
 
   return (
     <Component
-      className={`${variantStyles[variant]} ${alignStyles[align]} ${getColor(color)} ${classNameCustom || ''}`}
+      className={`${variantStyles[variant]} ${alignStyles[align]} ${colorGetter || ''} ${classNameCustom || ''}`}
+      style={styleColor}
       {...props}
     >
       {children}

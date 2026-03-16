@@ -27,7 +27,7 @@ export const Color: Story = {
 export const CustomColor: Story = {
   args: {
     children: 'Typography with a custom color',
-    color: 'ff00c6',
+    color: '#0502c6',
   },
 }
 
