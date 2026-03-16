@@ -7,6 +7,6 @@ export type TypographyColorType = TextColorType | ColorType
 
 export type TypographyType = ComponentType & {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span' | 'b'
-  color?: TypographyColorType
+  color?: TypographyColorType | string
   align?: 'center' | 'start' | 'justify' | 'left' | 'right' | 'end'
 }

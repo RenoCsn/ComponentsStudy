@@ -24,16 +24,24 @@ export const Color: Story = {
   },
 }
 
+export const CustomColor: Story = {
+  args: {
+    children: 'Typography with a custom color',
+    color: 'ff00c6',
+  },
+}
+
 export const Align: Story = {
   args: {
     children: 'Typography with align',
+    align: 'center',
   },
 }
 
 //Terminar
 export const Variant: Story = {
   args: {
-    children: 'Typography with variants',
+    children: 'H1 typography',
     variant: 'h1',
   },
 }
@@ -41,8 +49,6 @@ export const Variant: Story = {
 export const Custom: Story = {
   args: {
     children: 'Typography with custom css',
-    classNameCustom: {
-      className: 'text-decoration: underline;',
-    },
+    classNameCustom: 'underline font-black!',
   },
 }

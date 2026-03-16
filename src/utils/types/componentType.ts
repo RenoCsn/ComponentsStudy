@@ -5,6 +5,4 @@ export type ComponentType = {
   classNameCustom?: ClassNameCustom
 }
 
-export type ClassNameCustom = React.HTMLAttributes<{
-  className?: string | undefined
-}>
+export type ClassNameCustom = React.HTMLAttributes<HTMLElement>['className']

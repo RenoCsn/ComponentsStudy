@@ -7,7 +7,7 @@ import type {
 export const TypographyComponent: React.FC<TypographyType> = ({
   color = 'textPrimary',
   align = 'start',
-  variant = 'span',
+  variant = 'p',
   children,
   classNameCustom,
   ...props
@@ -15,14 +15,14 @@ export const TypographyComponent: React.FC<TypographyType> = ({
   const Component = variant as ElementType
 
   const variantStyles = {
-    h1: '',
-    h2: '',
-    h3: '',
-    h4: '',
-    h5: '',
-    p: '',
-    span: '',
-    b: '',
+    h1: 'font-bold text-8xl tracking-tight',
+    h2: 'font-bold text-6xl tracking-tight',
+    h3: 'font-semibold text-5xl tracking-normal',
+    h4: 'font-semibold text-4xl tracking-normal',
+    h5: 'font-semibold text-2xl tracking-normal',
+    p: 'font-normal text-base',
+    span: 'font-normal text-sm',
+    b: 'font-medium text-sm uppercase tracking-wide',
   }
 
   const alignStyles = {
@@ -48,13 +48,14 @@ export const TypographyComponent: React.FC<TypographyType> = ({
     }
 
     const mappedColor = colorStyles[color as keyof typeof colorStyles]
+    const textColor = 'text-[#' + color + ']'
 
-    return mappedColor || `text-[#${color}]`
+    return mappedColor || textColor
   }
 
   return (
     <Component
-      className={`${variantStyles[variant]} ${alignStyles[align]} ${getColor(color)} ${classNameCustom}`}
+      className={`${variantStyles[variant]} ${alignStyles[align]} ${getColor(color)} ${classNameCustom || ''}`}
       {...props}
     >
       {children}
