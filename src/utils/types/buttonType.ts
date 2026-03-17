@@ -1,13 +1,15 @@
-import type { ComponentType } from 'react'
+import type { ComponentType } from './componentType'
 import type { ColorType } from './colorsType'
 
+export type ButtonColorType = 'inherit' | ColorType
+
 export type ButtonType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ButtonColorType | ColorType
   align?: 'center' | 'inherit' | 'justify' | 'left' | 'right'
   isDisabled?: boolean
-  size?: 'small' | 'medium' | 'large' | string
-  fullWidth?: boolean
+  size?: 'small' | 'medium' | 'large'
+  isFullWidth?: boolean
   isAnimated?: boolean
-  animationStyle?: ''
-  variant?: 'contained' | 'outlined' | 'text' | string
+  animationStyle?: 'a' | 'b' | 'c' | 'd' | 'e'
+  variant?: 'contained' | 'outlined' | 'text'
 }
