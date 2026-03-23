@@ -5,7 +5,7 @@ export type ButtonColorType = 'inherit' | ColorType
 
 export type ButtonType = ComponentType & {
   color?: ButtonColorType | ColorType
-  align?: 'center' | 'inherit' | 'justify' | 'left' | 'right'
+  align?: 'center' | 'inherit' | 'justify' | 'start' | 'end'
   isDisabled?: boolean
   size?: 'small' | 'medium' | 'large'
   isFullWidth?: boolean

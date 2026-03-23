@@ -13,14 +13,13 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   classNameCustom,
   ...props
 }: ButtonType) => {
+  //revisar os flex-wrap
   const alignStyles = {
-    center: 'justify-center text-center',
-    start: 'justify-start text-start',
-    justify: 'text-justify',
-    left: 'text-left',
-    right: 'text-right',
-    end: 'justify-end text-end',
-    inherit: 'justify-inherit',
+    center: 'flex-wrap justify-center text-center',
+    start: 'flex-wrap justify-start text-start',
+    justify: 'flex-wrap text-justify',
+    end: 'flex-wrap justify-end text-end',
+    inherit: 'flex-wrap justify-inherit',
   }
 
   const disabledStyles = {
@@ -35,12 +34,24 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     : 'cursor-pointer'
 
   const buttonSize = {
-    small: 'text-xs ',
-    medium: 'text-sm ',
-    large: 'text-base ',
+    contained: {
+      small: 'text-xs py-1 px-2',
+      medium: 'text-sm py-2 px-4',
+      large: 'text-base py-3 px-6',
+    },
+    outlined: {
+      small: 'text-xs py-1 px-2',
+      medium: 'text-sm py-2 px-4',
+      large: 'text-base py-3 px-6',
+    },
+    text: {
+      small: 'text-xs py-1 px-1',
+      medium: 'text-sm py-2 px-2',
+      large: 'text-base py-3 px-8',
+    },
   }
 
-  const sizeStyle = isFullWidth ? 'w-full' : buttonSize[size]
+  const sizeStyle = isFullWidth ? 'w-full' : buttonSize[variant][size]
 
   const animation = {
     a: '',
@@ -54,14 +65,8 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     ? animation[animationStyle]
     : 'animate-none'
 
-  const paddings = {
-    contained: 'py-2 px-5.5',
-    outlined: 'py-2 px-5.5',
-    text: 'py-2 px-8',
-  }
-
   const defaultStyles = {
-    contained: 'border-none text-custom-white',
+    contained: 'border-none text-custom-white shadow-custom-mui',
     outlined: 'bg-transparent outline',
     text: 'border-none bg-transparent',
   }
@@ -99,7 +104,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   return (
     <button
       type='button'
-      className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${paddings[variant]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
+      className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
       // className=''
       {...props}
     >
