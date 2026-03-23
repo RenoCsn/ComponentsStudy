@@ -13,17 +13,6 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   classNameCustom,
   ...props
 }: ButtonType) => {
-  // const colorStyles = {
-  //   primary:
-  //     'bg-custom-primary-main text-custom-white border-custom-primary-main',
-  //   secondary: 'text-custom-secondary-main',
-  //   success: 'text-custom-success-main',
-  //   error: 'text-custom-error-main',
-  //   info: 'text-custom-info-main',
-  //   warning: 'text-custom-warning-main',
-  //   inherit: 'text-inherit',
-  // }
-
   const alignStyles = {
     center: 'justify-center text-center',
     start: 'justify-start text-start',
@@ -34,7 +23,16 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     inherit: 'justify-inherit',
   }
 
-  const isDisabledStyle = isDisabled ? '' : ''
+  const disabledStyles = {
+    contained: 'bg-custom-black/15! text-custom-black/30! cursor-not-allowed',
+    outlined:
+      'text-custom-black/30! cursor-not-allowed outline-custom-black/15!',
+    text: 'text-custom-black/30! cursor-not-allowed',
+  }
+
+  const isDisabledStyle = isDisabled
+    ? disabledStyles[variant]
+    : 'cursor-pointer'
 
   const buttonSize = {
     small: 'text-xs ',
@@ -55,12 +53,6 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   const selectedAnimation = isAnimated
     ? animation[animationStyle]
     : 'animate-none'
-
-  // const variantStyle = {
-  //   contained: 'border-none',
-  //   outlined: 'bg-transparent text-custom-primary-main border rounded-lg',
-  //   text: '',
-  // }
 
   const paddings = {
     contained: 'py-2 px-5.5',
@@ -107,7 +99,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   return (
     <button
       type='button'
-      className={`flex content-center min-w-16 rounded-sm ${alignStyles[align]} ${isDisabledStyle} ${sizeStyle} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${paddings[variant]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
+      className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${paddings[variant]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
       // className=''
       {...props}
     >
