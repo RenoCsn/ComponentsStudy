@@ -73,31 +73,37 @@ export const ButtonComponent: React.FC<ButtonType> = ({
 
   const buttonStyles = {
     contained: {
-      primary: 'bg-custom-primary-main',
-      secondary: 'bg-custom-secondary-main',
-      success: 'bg-custom-success-main',
-      error: 'bg-custom-error-main',
-      info: 'bg-custom-info-main',
-      warning: 'bg-custom-warning-main',
-      inherit: 'bg-inherit',
+      primary: 'bg-custom-primary-main hover:bg-custom-primary-dark',
+      secondary: 'bg-custom-secondary-main hover:bg-custom-secondary-dark',
+      success: 'bg-custom-success-main hover:bg-custom-success-dark ',
+      error: 'bg-custom-error-main hover:bg-custom-error-dark ',
+      info: 'bg-custom-info-main hover:bg-custom-info-dark',
+      warning: 'bg-custom-warning-main hover:bg-custom-warning-dark',
+      inherit: 'bg-inherit hover:bg-inherit/8',
     },
     outlined: {
-      primary: 'text-custom-primary-main',
-      secondary: 'text-custom-secondary-main',
-      success: 'text-custom-success-main',
-      error: 'text-custom-error-main ',
-      info: 'text-custom-info-main',
-      warning: 'text-custom-warning-main',
-      inherit: 'text-inherit',
+      primary:
+        'text-custom-primary-main outline-custom-primary-main/50 hover:bg-custom-primary-main/4 hover:outline-custom-primary-main',
+      secondary:
+        'text-custom-secondary-main outline-custom-secondary-main/50 hover:bg-custom-secondary-main/4 hover:outline-custom-secondary-main',
+      success:
+        'text-custom-success-main outline-custom-success-main/50 hover:bg-custom-success-main/4 hover:outline-custom-success-main',
+      error:
+        'text-custom-error-main outline-custom-error-main/50 hover:bg-custom-error-main/4 hover:outline-custom-error-main',
+      info: 'text-custom-info-main outline-custom-info-main/50 hover:bg-custom-info-main/4 hover:outline-custom-info-main',
+      warning:
+        'text-custom-warning-main outline-custom-warning-main/50 hover:bg-custom-warning-main/4 hover:outline-custom-warning-main',
+      inherit:
+        'text-inherit outline-inherit/50 hover:bg-inherit/4 hover:outline-inherit',
     },
     text: {
-      primary: 'text-custom-primary-main ',
-      secondary: 'text-custom-secondary-main ',
-      success: 'text-custom-success-main ',
-      error: 'text-custom-error-main ',
-      info: 'text-custom-info-main ',
-      warning: 'text-custom-warning-main ',
-      inherit: 'text-inherit',
+      primary: 'text-custom-primary-main hover:bg-custom-primary-main/4',
+      secondary: 'text-custom-secondary-main hover:bg-custom-secondary-main/4',
+      success: 'text-custom-success-main hover:bg-custom-success-main/4',
+      error: 'text-custom-error-main hover:bg-custom-error-main/4',
+      info: 'text-custom-info-main hover:bg-custom-info-main/4',
+      warning: 'text-custom-warning-main hover:bg-custom-warning-main/4',
+      inherit: 'text-inherit hover:bg-inherit/4',
     },
   }
 
