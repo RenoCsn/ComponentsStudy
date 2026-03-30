@@ -12,4 +12,5 @@ export type ButtonType = ComponentType & {
   isAnimated?: boolean
   animationStyle?: 'a' | 'b' | 'c' | 'd' | 'e'
   variant?: 'contained' | 'outlined' | 'text'
+  onClick?: () => void
 }

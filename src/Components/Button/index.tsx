@@ -13,13 +13,12 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   classNameCustom,
   ...props
 }: ButtonType) => {
-  //revisar os flex-wrap
   const alignStyles = {
-    center: 'flex-wrap justify-center text-center',
-    start: 'flex-wrap justify-start text-start',
-    justify: 'flex-wrap text-justify',
-    end: 'flex-wrap justify-end text-end',
-    inherit: 'flex-wrap justify-inherit',
+    center: 'justify-center text-center',
+    start: 'justify-start text-start',
+    justify: 'text-justify',
+    end: 'justify-end text-end',
+    inherit: 'justify-inherit',
   }
 
   const disabledStyles = {
@@ -51,7 +50,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     },
   }
 
-  const sizeStyle = isFullWidth ? 'w-full' : buttonSize[variant][size]
+  const sizeStyle = isFullWidth ? 'w-full' : ''
 
   const animation = {
     a: '',
@@ -66,7 +65,8 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     : 'animate-none'
 
   const defaultStyles = {
-    contained: 'border-none text-custom-white shadow-custom-mui',
+    contained:
+      'border-none text-custom-white shadow-custom-mui focus:shadow-custom-mui-focus transition active:bg-custom-primary-main/70 focus:bg-custom-primary-main/70 active:shadow-custom-mui-focus duration-5 focus:outline-offset-4 active:ease-in-out',
     outlined: 'bg-transparent outline',
     text: 'border-none bg-transparent',
   }
@@ -110,7 +110,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   return (
     <button
       type='button'
-      className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
+      className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${buttonSize[variant][size]} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
       // className=''
       {...props}
     >
