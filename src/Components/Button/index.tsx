@@ -7,7 +7,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   size = 'medium',
   isFullWidth = false,
   isAnimated = false,
-  animationStyle = 'a',
+  animationStyle = 'backgroundLighter',
   variant = 'contained',
   children,
   classNameCustom,
@@ -53,11 +53,12 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   const sizeStyle = isFullWidth ? 'w-full' : ''
 
   const animation = {
-    a: '',
-    b: '',
-    c: '',
-    d: '',
-    e: '',
+    simple: 'active:-translate-y-1 transform transition duration-200',
+    backgroundLighter:
+      'transition-colors active:bg-custom-primary-main/70 duration-700 active:ease-in-out focus:bg-custom-primary-main/70',
+    expand: 'transform active:scale-110 active:tracking-normal',
+    decrease: 'transform active:scale-90',
+    bounce: 'animate-bounce duration-900 delay-500',
   }
 
   const selectedAnimation = isAnimated
@@ -66,7 +67,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
 
   const defaultStyles = {
     contained:
-      'border-none text-custom-white shadow-custom-mui focus:shadow-custom-mui-focus transition active:bg-custom-primary-main/70 focus:bg-custom-primary-main/70 active:shadow-custom-mui-focus duration-5 focus:outline-offset-4 active:ease-in-out',
+      'border-none text-custom-white shadow-custom-mui focus:shadow-custom-mui-focus active:shadow-custom-mui-focus focus:outline-offset-4',
     outlined: 'bg-transparent outline',
     text: 'border-none bg-transparent',
   }
