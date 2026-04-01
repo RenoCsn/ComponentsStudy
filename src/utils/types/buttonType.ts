@@ -10,12 +10,7 @@ export type ButtonType = ComponentType & {
   size?: 'small' | 'medium' | 'large'
   isFullWidth?: boolean
   isAnimated?: boolean
-  animationStyle?:
-    | 'simple'
-    | 'backgroundLighter'
-    | 'expand'
-    | 'decrease'
-    | 'bounce'
+  animationStyle?: 'simple' | 'changeColor' | 'expand' | 'decrease' | 'bounce'
   variant?: 'contained' | 'outlined' | 'text'
   onClick?: () => void
 }

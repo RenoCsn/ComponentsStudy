@@ -7,7 +7,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   size = 'medium',
   isFullWidth = false,
   isAnimated = false,
-  animationStyle = 'backgroundLighter',
+  animationStyle = 'simple',
   variant = 'contained',
   children,
   classNameCustom,
@@ -52,10 +52,51 @@ export const ButtonComponent: React.FC<ButtonType> = ({
 
   const sizeStyle = isFullWidth ? 'w-full' : ''
 
+  const animationColors = {
+    contained: {
+      primary:
+        'active:bg-custom-primary-main/70 focus:bg-custom-primary-main/70',
+      secondary:
+        'active:bg-custom-secondary-main/70 focus:bg-custom-secondary-main/70',
+      success:
+        'active:bg-custom-success-main/70 focus:bg-custom-success-main/70',
+      error: 'active:bg-custom-error-main/70 focus:bg-custom-error-main/70',
+      info: 'active:bg-custom-info-main/70 focus:bg-custom-info-main/70',
+      warning:
+        'active:bg-custom-warning-main/70 focus:bg-custom-warning-main/70',
+      inherit: 'active:bg-inherit/70 focus:bg-inherit/70',
+    },
+    outlined: {
+      primary:
+        'active:bg-custom-primary-light/30 focus:bg-custom-primary-light/30',
+      secondary:
+        'active:bg-custom-secondary-light/30 focus:bg-custom-secondary-light/30',
+      success:
+        'active:bg-custom-success-light/30 focus:bg-custom-success-light/30',
+      error: 'active:bg-custom-error-light/30 focus:bg-custom-error-light/30',
+      info: 'active:bg-custom-info-light/30 focus:bg-custom-info-light/30',
+      warning:
+        'active:bg-custom-warning-light/30 focus:bg-custom-warning-light/30',
+      inherit: 'active:bg-inherit/30 focus:bg-inherit/30',
+    },
+    text: {
+      primary:
+        'active:bg-custom-primary-light/30 focus:bg-custom-primary-light/30',
+      secondary:
+        'active:bg-custom-secondary-light/30 focus:bg-custom-secondary-light/30',
+      success:
+        'active:bg-custom-success-light/30 focus:bg-custom-success-light/30',
+      error: 'active:bg-custom-error-light/30 focus:bg-custom-error-light/30',
+      info: 'active:bg-custom-info-light/30 focus:bg-custom-info-light/30',
+      warning:
+        'active:bg-custom-warning-light/30 focus:bg-custom-warning-light/30',
+      inherit: 'active:bg-inherit/30 focus:bg-inherit/30',
+    },
+  }
+
   const animation = {
     simple: 'active:-translate-y-1 transform transition duration-200',
-    backgroundLighter:
-      'transition-colors active:bg-custom-primary-main/70 duration-700 active:ease-in-out focus:bg-custom-primary-main/70',
+    changeColor: `transition-colors duration-500 active:ease-in ${animationColors[variant][color]}`,
     expand: 'transform active:scale-110 active:tracking-normal',
     decrease: 'transform active:scale-90',
     bounce: 'animate-bounce duration-900 delay-500',
@@ -84,27 +125,27 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     },
     outlined: {
       primary:
-        'text-custom-primary-main outline-custom-primary-main/50 hover:bg-custom-primary-main/4 hover:outline-custom-primary-main',
+        'text-custom-primary-main outline-custom-primary-main/50 hover:bg-custom-primary-main/10 hover:outline-custom-primary-main',
       secondary:
-        'text-custom-secondary-main outline-custom-secondary-main/50 hover:bg-custom-secondary-main/4 hover:outline-custom-secondary-main',
+        'text-custom-secondary-main outline-custom-secondary-main/50 hover:bg-custom-secondary-main/10 hover:outline-custom-secondary-main',
       success:
-        'text-custom-success-main outline-custom-success-main/50 hover:bg-custom-success-main/4 hover:outline-custom-success-main',
+        'text-custom-success-main outline-custom-success-main/50 hover:bg-custom-success-main/10 hover:outline-custom-success-main',
       error:
-        'text-custom-error-main outline-custom-error-main/50 hover:bg-custom-error-main/4 hover:outline-custom-error-main',
-      info: 'text-custom-info-main outline-custom-info-main/50 hover:bg-custom-info-main/4 hover:outline-custom-info-main',
+        'text-custom-error-main outline-custom-error-main/50 hover:bg-custom-error-main/10 hover:outline-custom-error-main',
+      info: 'text-custom-info-main outline-custom-info-main/50 hover:bg-custom-info-main/10 hover:outline-custom-info-main',
       warning:
-        'text-custom-warning-main outline-custom-warning-main/50 hover:bg-custom-warning-main/4 hover:outline-custom-warning-main',
+        'text-custom-warning-main outline-custom-warning-main/50 hover:bg-custom-warning-main/10 hover:outline-custom-warning-main',
       inherit:
-        'text-inherit outline-inherit/50 hover:bg-inherit/4 hover:outline-inherit',
+        'text-inherit outline-inherit/50 hover:bg-inherit/10 hover:outline-inherit',
     },
     text: {
-      primary: 'text-custom-primary-main hover:bg-custom-primary-main/4',
-      secondary: 'text-custom-secondary-main hover:bg-custom-secondary-main/4',
-      success: 'text-custom-success-main hover:bg-custom-success-main/4',
-      error: 'text-custom-error-main hover:bg-custom-error-main/4',
-      info: 'text-custom-info-main hover:bg-custom-info-main/4',
-      warning: 'text-custom-warning-main hover:bg-custom-warning-main/4',
-      inherit: 'text-inherit hover:bg-inherit/4',
+      primary: 'text-custom-primary-main hover:bg-custom-primary-main/10',
+      secondary: 'text-custom-secondary-main hover:bg-custom-secondary-main/10',
+      success: 'text-custom-success-main hover:bg-custom-success-main/10',
+      error: 'text-custom-error-main hover:bg-custom-error-main/10',
+      info: 'text-custom-info-main hover:bg-custom-info-main/10',
+      warning: 'text-custom-warning-main hover:bg-custom-warning-main/10',
+      inherit: 'text-inherit hover:bg-inherit/10',
     },
   }
 

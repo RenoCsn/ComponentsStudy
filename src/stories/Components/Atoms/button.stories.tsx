@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ButtonComponent } from '../../../Components/Button'
+import { fn } from 'storybook/test'
 
 const meta = {
   title: 'Atoms/Button',
@@ -31,6 +32,7 @@ const meta = {
     //   },
     // },
   },
+  args: { onClick: fn() },
 } satisfies Meta<typeof ButtonComponent>
 
 export default meta
@@ -39,51 +41,151 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: 'Default.',
+    children: 'Default',
   },
 }
 
-// export const Color: Story = {
-//   parameters: {
-//     docs: {
-//       description: {
-//         storybook:
-//           'Typography accepts primary, secondary, success, error, info, warning, textPrimary, textSecondary, textDisabled as preset colors.',
-//       },
-//     },
-//   },
-//   args: {
-//     children: 'Typography with preset color',
-//     color: 'success',
-//   },
-// }
+export const Color: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Button accepts primary, secondary, success, error, info, warning, and inherit as preset colors.',
+      },
+    },
+  },
+  args: {
+    children: 'Button',
+    color: 'secondary',
+  },
+}
 
-// export const CustomColor: Story = {
-//   args: {
-//     children:
-//       'Typography also can be used with a custom color passing the hex code.',
-//     color: '#0502c6',
-//   },
-// }
+export const Variant: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Button can be used in other variants as contained, outlined and text.',
+      },
+    },
+  },
+  args: {
+    children: 'Button',
+    variant: 'outlined',
+  },
+}
 
-// export const Align: Story = {
-//   args: {
-//     children: 'Typography with align style.',
-//     align: 'center',
-//   },
-// }
+export const Align: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button content controlling its align style.',
+      },
+    },
+  },
+  args: {
+    children: 'Button',
+    align: 'end',
+    classNameCustom: 'w-32',
+  },
+}
 
-// //Terminar
-// export const Variant: Story = {
-//   args: {
-//     children: 'Typography as H1 style.',
-//     variant: 'h1',
-//   },
-// }
+export const Disabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button disabled styles.',
+      },
+    },
+  },
+  args: {
+    children: 'Disabled',
+    isDisabled: true,
+  },
+}
 
-// export const Custom: Story = {
-//   args: {
-//     children: 'Typography with custom css.',
-//     classNameCustom: 'underline font-black!',
-//   },
-// }
+export const FullWidth: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button full width.',
+      },
+    },
+  },
+  args: {
+    children: 'Full',
+    isFullWidth: true,
+  },
+}
+
+export const Size: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button have small, medium and large sizes.',
+      },
+    },
+  },
+  args: {
+    children: 'Sizes',
+    size: 'large',
+  },
+}
+
+export const Animated: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button could be animated or not.',
+      },
+    },
+  },
+  args: {
+    children: 'Click me!',
+    isAnimated: true,
+  },
+}
+
+export const Animations: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Button have some different styles by default. You can use simple, backgroundLighter, expand, decrease and bounce.',
+      },
+    },
+  },
+  args: {
+    children: 'Bounce',
+    isAnimated: true,
+    animationStyle: 'bounce',
+  },
+}
+
+export const Custom: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button custom ccs.',
+      },
+    },
+  },
+  args: {
+    children: 'Custom',
+    classNameCustom: 'rounded-b-4xl rounded-t-none',
+  },
+}
+
+export const OnClick: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Button click function.',
+      },
+    },
+  },
+  args: {
+    children: 'Click me!',
+    onClick: fn(),
+  },
+}
