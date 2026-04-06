@@ -22,7 +22,7 @@ export const ButtonComponent: React.FC<ButtonType> = ({
   }
 
   const disabledStyles = {
-    contained: 'bg-custom-black/15! text-custom-black/30! cursor-not-allowed',
+    contained: 'bg-custom-black/15! text-custom-black/60! cursor-not-allowed',
     outlined:
       'text-custom-black/30! cursor-not-allowed outline-custom-black/15!',
     text: 'text-custom-black/30! cursor-not-allowed',

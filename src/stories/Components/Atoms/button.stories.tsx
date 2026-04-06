@@ -6,31 +6,58 @@ const meta = {
   title: 'Atoms/Button',
   component: ButtonComponent,
   argTypes: {
-    // color: {
-    //   control: {
-    //     type: 'color',
-    //   },
-    //   table: {
-    //     type: {
-    //       summary:
-    //         'primary, secondary, success, error, info, warning, textPrimary, textSecondary,textDisabled ou código hex',
-    //     },
-    //   },
-    // },
-    // align: {
-    //   table: {
-    //     type: {
-    //       summary: 'center, start, justify, left, right, end',
-    //     },
-    //   },
-    // },
-    // variant: {
-    //   table: {
-    //     type: {
-    //       summary: 'h1, h2, h3, h4, h5, p, span, b',
-    //     },
-    //   },
-    // },
+    color: {
+      control: {
+        type: 'select',
+      },
+      table: {
+        type: {
+          summary: 'primary, secondary, success, error, info, warning, inherit',
+        },
+      },
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'error',
+        'info',
+        'warning',
+        'inherit',
+      ],
+    },
+    align: {
+      table: {
+        type: {
+          summary: 'center, start, justify, end, inherit',
+        },
+      },
+    },
+    variant: {
+      table: {
+        type: {
+          summary: 'contained, outlined, text',
+        },
+      },
+    },
+    animationStyle: {
+      control: {
+        type: 'select',
+      },
+      table: {
+        type: {
+          summary: 'simple, changeColor, expand, decrease, bounce',
+        },
+      },
+      options: ['simple', 'changeColor', 'expand', 'decrease', 'bounce'],
+    },
+    classNameCustom: {
+      table: {
+        type: {
+          summary:
+            'Any tailwind css class. Ex: "rounded-b-4xl rounded-t-none" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
+        },
+      },
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof ButtonComponent>
