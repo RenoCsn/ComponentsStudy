@@ -31,6 +31,14 @@ const meta = {
         },
       },
     },
+    classNameCustom: {
+      table: {
+        type: {
+          summary:
+            'Any tailwind css class. Ex: "underline font-black!" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
+        },
+      },
+    },
   },
 } satisfies Meta<typeof TypographyComponent>
 
