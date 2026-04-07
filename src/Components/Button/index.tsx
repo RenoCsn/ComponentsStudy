@@ -153,7 +153,6 @@ export const ButtonComponent: React.FC<ButtonType> = ({
     <button
       type='button'
       className={`flex content-center min-w-16 rounded-sm ${isDisabledStyle} ${alignStyles[align]} ${sizeStyle} ${buttonSize[variant][size]} ${defaultStyles[variant]} ${buttonStyles[variant][color]} ${selectedAnimation} uppercase ${classNameCustom || ''}`}
-      // className=''
       {...props}
     >
       {children}
