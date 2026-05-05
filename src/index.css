@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Utilities built dynamically in src/utils/hooks/useColor.tsx */
+@source inline("{fill,text,bg}-custom-{primary,secondary,success,error,info,warning}-main");
+
 @theme {
 
     /* Custom Gray */
