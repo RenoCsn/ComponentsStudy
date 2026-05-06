@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "vitest --project=storybook"
+    "test-storybook": "vitest --project=storybook",
+    "icons:generate": "node scripts/sync-icon-exports.mjs"
   },
   "dependencies": {
     "@storybook/addon-styling-webpack": "^3.0.0",

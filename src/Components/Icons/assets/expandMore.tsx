@@ -1,0 +1,59 @@
+import { useEffect } from 'react'
+import { UseColor } from '../../../utils/hooks/useColor'
+import type { IconType } from '../../../utils/types/iconType'
+
+export const ExpandMoreIcon: React.FC<IconType> = ({
+  color = 'primary',
+  size = 'medium',
+  isDisabled = false,
+  //TODO
+  // isAnimated = false,
+  // animationStyle = 'simple',
+  classNameCustom,
+  svgProps,
+}: IconType) => {
+  const { setColor, currentColor, isCustomColor } = UseColor('fill')
+
+  useEffect(() => {
+    setColor(color)
+  }, [color, currentColor, setColor])
+
+  const getSize = (
+    size: 'small' | 'medium' | 'large' | string,
+  ): string | null => {
+    const iconSize = {
+      small: 'w-5 h-5',
+      medium: 'w-6 h-6',
+      large: 'w-9 h-9',
+    }
+
+    const mappedSize = iconSize[size as keyof typeof iconSize]
+    return mappedSize || null
+  }
+
+  const sizeGetter = getSize(size)
+  const isCustomSize = !sizeGetter
+  const customPx = Number(size) * 4
+  const customSizePx =
+    isCustomSize && Number.isFinite(customPx) ? `${customPx}px` : undefined
+
+  const disabledStyles = isDisabled
+    ? 'bg-custom-black/10! fill-custom-black/40! cursor-not-allowed'
+    : ''
+
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      className={`flex content-center ${!isCustomColor ? currentColor : ''} ${!isCustomSize ? sizeGetter : ''} ${disabledStyles} ${classNameCustom || ''}`}
+      style={{
+        ...(isCustomColor ? { fill: currentColor } : {}),
+        ...(customSizePx ? { width: customSizePx, height: customSizePx } : {}),
+      }}
+      {...svgProps}
+    >
+      <path d='M24 24H0V0h24v24z' fill='none' opacity='.87' />
+      <path d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z' />
+    </svg>
+  )
+}
