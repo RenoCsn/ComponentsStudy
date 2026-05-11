@@ -6,9 +6,8 @@ export const AllIcons: React.FC<IconType> = ({
   color,
   size,
   isDisabled,
-  //TODO
-  // isAnimated = false,
-  // animationStyle = 'simple',
+  isAnimated = false,
+  animationStyle = 'spin',
   classNameCustom,
   svgProps,
 }: IconType) => (
@@ -25,6 +24,8 @@ export const AllIcons: React.FC<IconType> = ({
           color={color}
           size={size}
           isDisabled={isDisabled}
+          isAnimated={isAnimated}
+          animationStyle={animationStyle}
           classNameCustom={classNameCustom}
           svgProps={svgProps}
         />
@@ -64,18 +65,17 @@ const meta = {
         },
       },
     },
-    //TODO
-    // animationStyle: {
-    //   control: {
-    //     type: 'select',
-    //   },
-    //   table: {
-    //     type: {
-    //       summary: 'simple, changeColor, expand, decrease, bounce',
-    //     },
-    //   },
-    //   options: ['simple', 'changeColor', 'expand', 'decrease', 'bounce'],
-    // },
+    animationStyle: {
+      control: {
+        type: 'select',
+      },
+      table: {
+        type: {
+          summary: 'spin, flipHorizontal, flipVertical, expand, decrease',
+        },
+      },
+      options: ['spin', 'flipHorizontal', 'flipVertical', 'expand', 'decrease'],
+    },
     classNameCustom: {
       table: {
         type: {
@@ -141,36 +141,36 @@ export const Disabled: Story = {
   },
 }
 
-// TODO
-// export const Animated: Story = {
-//   parameters: {
-//     docs: {
-//       description: {
-//         storybook: 'Icons could be animated or not.',
-//       },
-//     },
-//   },
-//   args: {
-//     children: 'Click me!',
-//     isAnimated: true,
-//   },
-// }
+export const Animated: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Icons could be animated or not.',
+      },
+    },
+  },
+  args: {
+    children: 'Hover me!',
+    isAnimated: true,
+    animationStyle: 'decrease',
+  },
+}
 
-// export const Animations: Story = {
-//   parameters: {
-//     docs: {
-//       description: {
-//         storybook:
-//           'Icons have some different styles by default. You can use simple, backgroundLighter, expand, decrease and bounce.',
-//       },
-//     },
-//   },
-//   args: {
-//     children: 'Bounce',
-//     isAnimated: true,
-//     animationStyle: 'bounce',
-//   },
-// }
+export const Animations: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Icons have some different styles by default. You can use spin, flipHorizontal, flipVertical, expand, decrease.',
+      },
+    },
+  },
+  args: {
+    children: 'Spin',
+    isAnimated: true,
+    animationStyle: 'spin',
+  },
+}
 
 export const SvgProps: Story = {
   parameters: {

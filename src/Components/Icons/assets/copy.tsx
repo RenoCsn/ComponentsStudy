@@ -6,9 +6,8 @@ export const CopyIcon: React.FC<IconType> = ({
   color = 'primary',
   size = 'medium',
   isDisabled = false,
-  //TODO
-  // isAnimated = false,
-  // animationStyle = 'simple',
+  isAnimated = false,
+  animationStyle = 'spin',
   classNameCustom,
   svgProps,
 }: IconType) => {
@@ -41,11 +40,25 @@ export const CopyIcon: React.FC<IconType> = ({
     ? 'bg-custom-black/10! fill-custom-black/40! cursor-not-allowed'
     : ''
 
+  const animation = {
+    spin: 'animate-spin',
+    flipHorizontal:
+      'animate-icon-flip-out-horizontal hover:animate-icon-flip-in-horizontal',
+    flipVertical:
+      'animate-icon-flip-out-vertical hover:animate-icon-flip-in-vertical',
+    expand: 'transform hover:scale-110 hover:tracking-normal',
+    decrease: 'transform hover:scale-90',
+  }
+
+  const selectedAnimation = isAnimated
+    ? animation[animationStyle]
+    : 'animate-none'
+
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      className={`flex content-center ${!isCustomColor ? currentColor : ''} ${!isCustomSize ? sizeGetter : ''} ${disabledStyles} ${classNameCustom || ''}`}
+      className={`flex content-center ${!isCustomColor ? currentColor : ''} ${!isCustomSize ? sizeGetter : ''} ${disabledStyles} ${selectedAnimation} ${classNameCustom || ''}`}
       style={{
         ...(isCustomColor ? { fill: currentColor } : {}),
         ...(customSizePx ? { width: customSizePx, height: customSizePx } : {}),

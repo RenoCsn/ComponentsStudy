@@ -6,8 +6,12 @@ export type IconType = ComponentType & {
   color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
   isDisabled?: boolean
-  // isAnimated?: boolean
-  //TODO: escolher tipos de animação para os icones.
-  // animationStyle?: 'spin' | 'colorChange' | 'expand' | 'decrease'
+  isAnimated?: boolean
+  animationStyle?:
+    | 'spin'
+    | 'flipHorizontal'
+    | 'flipVertical'
+    | 'expand'
+    | 'decrease'
   svgProps?: SVGProps<SVGSVGElement>
 }
