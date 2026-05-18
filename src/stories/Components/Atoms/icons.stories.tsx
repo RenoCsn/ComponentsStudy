@@ -5,7 +5,7 @@ import type { IconType } from '../../../utils/types/iconType'
 export const AllIcons: React.FC<IconType> = ({
   color,
   size,
-  isDisabled,
+  isDisabled = false,
   isAnimated = false,
   animationStyle = 'spin',
   classNameCustom,
@@ -80,7 +80,7 @@ const meta = {
       table: {
         type: {
           summary:
-            'Any tailwind css class. Ex: "" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
+            'Any tailwind css class. Ex: "rounded-sm border-4" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
         },
       },
     },
