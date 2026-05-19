@@ -46,7 +46,7 @@ const meta = {
       table: {
         type: {
           summary:
-            'primary, secondary, success, error, info, warning, ou código hex',
+            'primary, secondary, success, error, info, warning, or hex code',
         },
       },
     },

@@ -59,6 +59,8 @@
     --animate-icon-flip-out-horizontal: icon-flip-out-horizontal 0.85s ease-in-out;
     --animate-icon-flip-out-vertical: icon-flip-out-vertical 0.85s ease-in-out;
 
+    --animate-skeleton-wave: skeleton-wave 1.6s ease-in-out infinite;
+
 
     @keyframes icon-flip-in-horizontal {
         from {
@@ -99,6 +101,16 @@
 
         to {
             transform: rotateX(0deg);
+        }
+    }
+
+    @keyframes skeleton-wave {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
         }
     }
 
