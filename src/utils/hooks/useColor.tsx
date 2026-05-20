@@ -26,7 +26,6 @@ export const UseColor = (prefix: prefixType): useColorProps => {
     const styleColor = !colorGetter ? color : ''
 
     setCurrentColor(colorGetter || styleColor)
-    console.log(colorGetter, '+ ', styleColor)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, currentColor])
@@ -42,7 +41,6 @@ export const UseColor = (prefix: prefixType): useColorProps => {
     }
 
     const mappedColor = colorStyles[color as keyof typeof colorStyles]
-    console.log(mappedColor, '- ', colorStyles)
 
     return mappedColor || null
   }

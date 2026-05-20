@@ -13,7 +13,7 @@ const meta = {
       table: {
         type: {
           summary:
-            'primary, secondary, success, error, info, warning, textPrimary, textSecondary,textDisabled ou código hex',
+            'primary, secondary, success, error, info, warning, textPrimary, textSecondary,textDisabled or hex code',
         },
       },
     },
