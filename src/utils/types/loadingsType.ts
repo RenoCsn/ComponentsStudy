@@ -2,12 +2,11 @@ import type { ColorType } from './colorsType'
 import type { ComponentType } from './componentType'
 
 export type DotLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
   isLoading?: boolean
-  thickness?: number
-  hasValue?: boolean
-  value?: number
+  maxDots?: number
+  intervalMs?: number
 }
 
 export type CircleLoadingType = ComponentType & {
