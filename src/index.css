@@ -117,6 +117,7 @@
     }
 
     @keyframes dot-fade {
+
         0%,
         100% {
             opacity: 0.15;

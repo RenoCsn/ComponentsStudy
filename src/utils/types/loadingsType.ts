@@ -10,26 +10,28 @@ export type DotLoadingType = ComponentType & {
 }
 
 export type CircleLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
+  speed?: number
   isLoading?: boolean
   thickness?: number
   hasValue?: boolean
   value?: number
-  hasLabel: boolean
-  label?: number
+  hasLabel?: boolean
+  label?: string
   hasBackground?: boolean
+  labelPosition?: 'inside' | 'left' | 'right' | 'top' | 'bottom'
 }
 
 export type ProgressionBarLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
   isLoading?: boolean
   thickness?: number
   hasValue?: boolean
   value?: number
   hasLabel: boolean
-  label?: number
+  label?: string
   hasBackground?: boolean
   labelPosition?: 'left' | 'right' | 'top' | 'bottom'
 }

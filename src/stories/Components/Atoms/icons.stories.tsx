@@ -54,7 +54,7 @@ const meta = {
       table: {
         type: {
           summary:
-            'small, medium, large or a string with width and height values. It will convert from pixels to rem.',
+            'small, medium, large or a numeric string for both values (width and height). It will convert from pixels to rem (×4).',
         },
       },
     },
