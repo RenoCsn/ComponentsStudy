@@ -2,35 +2,38 @@ import type { ColorType } from './colorsType'
 import type { ComponentType } from './componentType'
 
 export type DotLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
   isLoading?: boolean
-  thickness?: number
-  hasValue?: boolean
-  value?: number
+  maxDots?: number
+  intervalMs?: number
 }
 
 export type CircleLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
+  speed?: number
   isLoading?: boolean
   thickness?: number
   hasValue?: boolean
   value?: number
-  hasLabel: boolean
-  label?: number
+  hasLabel?: boolean
+  label?: string
   hasBackground?: boolean
+  labelPosition?: 'inside' | 'left' | 'right' | 'top' | 'bottom'
 }
 
 export type ProgressionBarLoadingType = ComponentType & {
-  color?: 'inherit' | ColorType
+  color?: ColorType | string
+  backgroundColor?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
+  speed?: number
+  isReverse?: boolean
   isLoading?: boolean
-  thickness?: number
-  hasValue?: boolean
-  value?: number
-  hasLabel: boolean
-  label?: number
+  hasProgressValue?: boolean
+  progressValue?: number
+  hasLabel?: boolean
+  label?: string
   hasBackground?: boolean
   labelPosition?: 'left' | 'right' | 'top' | 'bottom'
 }
