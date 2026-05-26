@@ -75,7 +75,7 @@ export const CircleLoadingComponent: React.FC<CircleLoadingType> = ({
 
   const resolvedColor = resolveColor(color, isCustomColor, currentColor)
 
-  const renderInfiniteRing = () => (
+  const renderNoValueRing = () => (
     <div
       className={`relative ${!isCustomSize ? sizeGetter : ''}`}
       style={{
@@ -105,7 +105,7 @@ export const CircleLoadingComponent: React.FC<CircleLoadingType> = ({
     </div>
   )
 
-  const renderFiniteRing = () => (
+  const renderHasValueRing = () => (
     <div
       className={`relative ${!isCustomSize ? sizeGetter : ''}`}
       style={{
@@ -148,7 +148,7 @@ export const CircleLoadingComponent: React.FC<CircleLoadingType> = ({
     </div>
   )
 
-  const ring = hasValue ? renderFiniteRing() : renderInfiniteRing()
+  const ring = hasValue ? renderHasValueRing() : renderNoValueRing()
 
   const labelOutside = showLabel && labelPosition !== 'inside'
 

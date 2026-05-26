@@ -25,7 +25,10 @@ export type CircleLoadingType = ComponentType & {
 
 export type ProgressionBarLoadingType = ComponentType & {
   color?: ColorType | string
+  backgroundColor?: ColorType | string
   size?: 'small' | 'medium' | 'large' | string
+  speed?: number
+  isReverse?: boolean
   isLoading?: boolean
   thickness?: number
   hasValue?: boolean
