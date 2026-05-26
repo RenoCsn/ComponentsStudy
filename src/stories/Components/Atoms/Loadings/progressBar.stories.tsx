@@ -1,11 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { CircleLoadingComponent } from '../../../../Components/Loadings/Circle'
+import { ProgressBarLoadingComponent } from '../../../../Components/Loadings/ProgressBar'
+import { ArrowCircleRightIcon } from '../../../../Components/Icons'
 
 const meta = {
-  title: 'Atoms/Loadings/Circle',
-  component: CircleLoadingComponent,
+  title: 'Atoms/Loadings/ProgressBar',
+  component: ProgressBarLoadingComponent,
+  decorators: [
+    (Story) => (
+      <div className='w-full'>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     color: {
+      control: {
+        type: 'color',
+      },
+      table: {
+        type: {
+          summary:
+            'primary, secondary, success, error, info, warning, or hex code',
+        },
+      },
+    },
+    backgroundColor: {
       control: {
         type: 'color',
       },
@@ -28,24 +47,16 @@ const meta = {
       control: { type: 'number', min: 0.25, max: 5, step: 0.25 },
       table: {
         type: {
-          summary: 'Spin animation duration in seconds.',
+          summary: 'Speed of the animation in seconds.',
         },
       },
     },
-    thickness: {
-      control: { type: 'number', min: 2, max: 12, step: 1 },
-      table: {
-        type: {
-          summary: 'Ring stroke width in pixels.',
-        },
-      },
-    },
-    value: {
+    progressValue: {
       control: { type: 'number', min: 0, max: 100, step: 1 },
       table: {
         type: {
           summary:
-            'Progress value from 0 to 100. Updates the ring and label in finite mode.',
+            'Progress value from 0 to 100. Updates the fill and label in finite mode.',
         },
       },
     },
@@ -58,10 +69,10 @@ const meta = {
     },
     labelPosition: {
       control: { type: 'select' },
-      options: ['inside', 'left', 'right', 'top', 'bottom'],
+      options: ['left', 'right', 'top', 'bottom'],
       table: {
         type: {
-          summary: 'Position of label and value, relative to the ring.',
+          summary: 'Position of label and value, relative to the progressBar.',
         },
       },
     },
@@ -69,13 +80,12 @@ const meta = {
       table: {
         type: {
           summary:
-            'Any tailwind css class. Ex: "opacity-50" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
+            'Any tailwind css class. Ex: "border-3 border-red-500 border-dotted" Obs: Sometimes you may need to use !(important tailwind tag) after to overwrite some css.',
         },
       },
     },
-    children: { table: { disable: true } },
   },
-} satisfies Meta<typeof CircleLoadingComponent>
+} satisfies Meta<typeof ProgressBarLoadingComponent>
 
 export default meta
 
@@ -91,24 +101,23 @@ export const NotLoading: Story = {
 
 export const Finite: Story = {
   args: {
-    hasValue: true,
-    value: 65,
+    hasProgressValue: true,
+    progressValue: 30,
   },
 }
 
-export const FiniteWithLabelInside: Story = {
+export const FiniteNotLoading: Story = {
   args: {
-    hasValue: true,
-    value: 65,
-    hasLabel: true,
-    labelPosition: 'inside',
+    hasProgressValue: true,
+    progressValue: 30,
+    isLoading: false,
   },
 }
 
 export const FiniteWithLabelTop: Story = {
   args: {
-    hasValue: true,
-    value: 65,
+    hasProgressValue: true,
+    progressValue: 50,
     hasLabel: true,
     labelPosition: 'top',
   },
@@ -116,8 +125,8 @@ export const FiniteWithLabelTop: Story = {
 
 export const FiniteWithLabelRight: Story = {
   args: {
-    hasValue: true,
-    value: 65,
+    hasProgressValue: true,
+    progressValue: 75,
     hasLabel: true,
     labelPosition: 'right',
   },
@@ -125,8 +134,8 @@ export const FiniteWithLabelRight: Story = {
 
 export const FiniteWithLabelBottom: Story = {
   args: {
-    hasValue: true,
-    value: 65,
+    hasProgressValue: true,
+    progressValue: 65,
     hasLabel: true,
     labelPosition: 'bottom',
   },
@@ -134,16 +143,16 @@ export const FiniteWithLabelBottom: Story = {
 
 export const FiniteWithLabelLeft: Story = {
   args: {
-    hasValue: true,
-    value: 65,
+    hasProgressValue: true,
+    progressValue: 65,
     hasLabel: true,
     labelPosition: 'left',
   },
 }
 
-export const WithBackground: Story = {
+export const WithoutBackground: Story = {
   args: {
-    hasLabel: true,
+    hasBackground: false,
   },
 }
 
@@ -159,20 +168,32 @@ export const CustomColor: Story = {
   },
 }
 
+export const CustomBackgroundColor: Story = {
+  args: {
+    backgroundColor: 'secondary',
+  },
+}
+
 export const CustomSpeed: Story = {
   args: {
     speed: 0.5,
   },
 }
 
-export const CustomThickness: Story = {
+export const Reverse: Story = {
   args: {
-    thickness: 8,
+    isReverse: true,
+  },
+}
+
+export const WithChildren: Story = {
+  args: {
+    children: <ArrowCircleRightIcon />,
   },
 }
 
 export const Custom: Story = {
   args: {
-    classNameCustom: 'opacity-50',
+    classNameCustom: 'border-3 border-red-500 border-dotted',
   },
 }

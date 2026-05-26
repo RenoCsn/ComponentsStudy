@@ -30,10 +30,9 @@ export type ProgressionBarLoadingType = ComponentType & {
   speed?: number
   isReverse?: boolean
   isLoading?: boolean
-  thickness?: number
-  hasValue?: boolean
-  value?: number
-  hasLabel: boolean
+  hasProgressValue?: boolean
+  progressValue?: number
+  hasLabel?: boolean
   label?: string
   hasBackground?: boolean
   labelPosition?: 'left' | 'right' | 'top' | 'bottom'
