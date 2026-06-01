@@ -36,7 +36,6 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
     <span
       className='inline-block text-left tabular-nums'
       style={{ width: `${maxDots}ch` }}
-      aria-hidden
     >
       {isLoading ? '.'.repeat(dotCount) : ''}
     </span>

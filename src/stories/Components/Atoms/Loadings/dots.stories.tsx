@@ -69,6 +69,13 @@ export const NotLoading: Story = {
   },
 }
 
+export const Size: Story = {
+  args: {
+    children: 'Continue',
+    size: '10',
+  },
+}
+
 export const CustomInterval: Story = {
   args: {
     intervalMs: 100,
@@ -84,14 +91,14 @@ export const MaxDots: Story = {
 
 export const Color: Story = {
   args: {
-    color: 'warning',
+    color: 'success',
     children: 'Saving',
   },
 }
 
 export const CustomColor: Story = {
   args: {
-    color: '#dbd41d',
+    color: '#941296',
     children: 'Downloading',
   },
 }

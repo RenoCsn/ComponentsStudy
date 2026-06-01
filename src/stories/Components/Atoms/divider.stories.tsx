@@ -131,6 +131,13 @@ export const Size: Story = {
   },
 }
 
+export const CustomSize: Story = {
+  args: {
+    size: '6',
+    color: 'primary',
+  },
+}
+
 export const Variant: Story = {
   args: {
     variant: 'inset',
