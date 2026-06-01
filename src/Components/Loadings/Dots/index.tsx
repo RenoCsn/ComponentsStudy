@@ -10,6 +10,7 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
   intervalMs = 400,
   children,
   classNameCustom,
+  ...props
 }: DotLoadingType) => {
   const [dotCount, setDotCount] = useState(0)
   const { setColor, currentColor, isCustomColor } = UseColor('text')
@@ -67,6 +68,7 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
         ...(isCustomColor ? { color: currentColor } : {}),
         ...(customSizePx ? { fontSize: customSizePx } : {}),
       }}
+      {...props}
     >
       {children != null && children !== '' && <span>{children}</span>}
       {renderTextDots()}

@@ -11,6 +11,7 @@ export const SkeletonComponent: React.FC<SkeletonType> = ({
   variant = 'text',
   classNameCustom,
   children,
+  ...props
 }: SkeletonType) => {
   const { setColor, currentColor, isCustomColor } = UseColor('bg')
 
@@ -35,20 +36,16 @@ export const SkeletonComponent: React.FC<SkeletonType> = ({
   const showWave = isAnimated && animationStyle === 'wave'
   return (
     <div
-      role='status'
-      aria-busy='true'
-      aria-label='Loading'
       className={`relative overflow-hidden box-border inline-flex ${variantStyles[variant]} ${currentColor || 'bg-custom-gray-200'} ${isAnimated && !showWave ? animationStyles['pulse'] : 'animate-none'} ${classNameCustom || ''}`}
       style={{
         ...(isCustomColor ? { backgroundColor: currentColor } : {}),
         ...size,
       }}
+      {...props}
     >
       <span className='invisible'>{children}</span>
-      <span className='pointer-events-none absolute inset-0' aria-hidden />
-      {showWave && (
-        <span aria-hidden='true' className={`${animationStyles['wave']}`} />
-      )}
+      <span className='pointer-events-none absolute inset-0' />
+      {showWave && <span className={`${animationStyles['wave']}`} />}
     </div>
   )
 }

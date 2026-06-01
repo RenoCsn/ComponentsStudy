@@ -20,6 +20,7 @@ export const ProgressBarLoadingComponent: React.FC<
   labelPosition = 'right',
   classNameCustom,
   children,
+  ...props
 }: ProgressionBarLoadingType) => {
   const { setColor, currentColor, isCustomColor } = UseColor('bg')
   const {
@@ -157,7 +158,7 @@ export const ProgressBarLoadingComponent: React.FC<
     : renderNoValueProgressBar()
 
   return (
-    <div className={`${positionStyle[labelPosition]}`}>
+    <div className={`${positionStyle[labelPosition]}`} {...props}>
       {children}
       {showLabel && (
         <span className='shrink-0 tabular-nums text-sm'>
