@@ -10,6 +10,7 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
   intervalMs = 400,
   children,
   classNameCustom,
+  ...props
 }: DotLoadingType) => {
   const [dotCount, setDotCount] = useState(0)
   const { setColor, currentColor, isCustomColor } = UseColor('text')
@@ -35,7 +36,6 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
     <span
       className='inline-block text-left tabular-nums'
       style={{ width: `${maxDots}ch` }}
-      aria-hidden
     >
       {isLoading ? '.'.repeat(dotCount) : ''}
     </span>
@@ -67,6 +67,7 @@ export const DotsLoadingComponent: React.FC<DotLoadingType> = ({
         ...(isCustomColor ? { color: currentColor } : {}),
         ...(customSizePx ? { fontSize: customSizePx } : {}),
       }}
+      {...props}
     >
       {children != null && children !== '' && <span>{children}</span>}
       {renderTextDots()}

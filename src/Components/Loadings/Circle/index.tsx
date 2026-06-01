@@ -16,6 +16,7 @@ export const CircleLoadingComponent: React.FC<CircleLoadingType> = ({
   hasBackground = false,
   labelPosition = 'inside',
   classNameCustom,
+  ...props
 }: CircleLoadingType) => {
   const { setColor, currentColor, isCustomColor } = UseColor('text')
 
@@ -153,7 +154,10 @@ export const CircleLoadingComponent: React.FC<CircleLoadingType> = ({
   const labelOutside = showLabel && labelPosition !== 'inside'
 
   return (
-    <div className={`${positionStyle[labelPosition]} ${classNameCustom || ''}`}>
+    <div
+      className={`${positionStyle[labelPosition]} ${classNameCustom || ''}`}
+      {...props}
+    >
       {labelOutside && (
         <span
           className={`tabular-nums ${!isCustomSize ? sizeGetter : ''}`}
