@@ -1,7 +1,33 @@
 @import "tailwindcss";
 
 /* Utilities built dynamically in src/utils/hooks/useColor.tsx */
-@source inline("{fill,text,bg,border}-custom-{primary,secondary,success,error,info,warning}-main");
+@source inline("visited:{fill,text,bg,border,decoration}-custom-{primary,secondary,success,error,info,warning}-{main,light,dark}");
+
+@layer base {
+    a:where(:any-link) {
+        color: inherit;
+        text-decoration-color: inherit;
+        text-decoration-line: inherit;
+    }
+}
+
+@layer components {
+    .link-custom-color {
+        color: var(--link-color);
+    }
+
+    .link-custom-visited-color:visited {
+        color: color-mix(in srgb, var(--link-color) 40%, white);
+    }
+
+    .link-custom-decoration-color {
+        text-decoration-color: var(--link-decoration-color);
+    }
+
+    .link-custom-visited-decoration:visited {
+        text-decoration-color: color-mix(in srgb, var(--link-decoration-color) 40%, white);
+    }
+}
 
 @theme {
 
