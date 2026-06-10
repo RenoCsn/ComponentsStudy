@@ -7,7 +7,7 @@ type useColorProps = {
   isCustomColor: boolean
 }
 
-type prefixType = 'text' | 'fill' | 'bg' | 'border'
+type prefixType = 'text' | 'fill' | 'bg' | 'border' | 'decoration'
 
 export const UseColor = (prefix: prefixType): useColorProps => {
   const [color, setColor] = useState<ColorType | string>('')

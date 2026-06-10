@@ -1,7 +1,33 @@
 @import "tailwindcss";
 
 /* Utilities built dynamically in src/utils/hooks/useColor.tsx */
-@source inline("{fill,text,bg,border}-custom-{primary,secondary,success,error,info,warning}-main");
+@source inline("visited:{fill,text,bg,border,decoration}-custom-{primary,secondary,success,error,info,warning}-{main,light,dark}");
+
+@layer base {
+    a:where(:any-link) {
+        color: inherit;
+        text-decoration-color: inherit;
+        text-decoration-line: inherit;
+    }
+}
+
+@layer components {
+    .link-custom-color {
+        color: var(--link-color);
+    }
+
+    .link-custom-visited-color:visited {
+        color: color-mix(in srgb, var(--link-color) 40%, white);
+    }
+
+    .link-custom-decoration-color {
+        text-decoration-color: var(--link-decoration-color);
+    }
+
+    .link-custom-visited-decoration:visited {
+        text-decoration-color: color-mix(in srgb, var(--link-decoration-color) 40%, white);
+    }
+}
 
 @theme {
 
@@ -61,10 +87,11 @@
 
     --animate-skeleton-wave: skeleton-wave 1.6s ease-in-out infinite;
 
-    --animate-dot-fade: dot-fade 1.2s ease-in-out infinite;
+    /* --animate-dot-fade: dot-fade 1.2s ease-in-out infinite; */
 
     --animate-progress-indeterminate: progress-indeterminate 2s ease-in-out infinite;
 
+    --animate-fade-loop: fade-loop 1.5s ease-in-out infinite;
 
     @keyframes icon-flip-in-horizontal {
         from {
@@ -140,6 +167,20 @@
 
         100% {
             transform: translateX(400%);
+        }
+    }
+
+    @keyframes fade-loop {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .35;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 
