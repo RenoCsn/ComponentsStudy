@@ -49,10 +49,10 @@ const meta = {
       },
       table: {
         type: {
-          summary: 'underlineDown',
+          summary: 'underlineDown, fadeLoop',
         },
       },
-      options: ['underlineDown'],
+      options: ['underlineDown', 'fadeLoop'],
     },
     classNameCustom: {
       table: {

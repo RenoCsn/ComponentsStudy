@@ -59,6 +59,7 @@ export const LinkComponent: React.FC<LinkType> = ({
   const animation = {
     underlineDown:
       'underline-offset-1 transition-[text-underline-offset] duration-700 ease-in-out hover:underline-offset-[16px]',
+    fadeLoop: 'animate-fade-loop hover:animate-none hover:opacity-100',
   }
 
   const selectedAnimation = isAnimated

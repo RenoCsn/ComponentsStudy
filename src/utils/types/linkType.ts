@@ -9,5 +9,5 @@ export type LinkType = ComponentType &
     textDecorationColor?: ColorType | string
     textDecorationThickness?: 'small' | 'medium' | 'large' | string
     isAnimated?: boolean
-    animationStyle?: 'underlineDown'
+    animationStyle?: 'underlineDown' | 'fadeLoop'
   }

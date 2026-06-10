@@ -87,10 +87,11 @@
 
     --animate-skeleton-wave: skeleton-wave 1.6s ease-in-out infinite;
 
-    --animate-dot-fade: dot-fade 1.2s ease-in-out infinite;
+    /* --animate-dot-fade: dot-fade 1.2s ease-in-out infinite; */
 
     --animate-progress-indeterminate: progress-indeterminate 2s ease-in-out infinite;
 
+    --animate-fade-loop: fade-loop 1.5s ease-in-out infinite;
 
     @keyframes icon-flip-in-horizontal {
         from {
@@ -166,6 +167,20 @@
 
         100% {
             transform: translateX(400%);
+        }
+    }
+
+    @keyframes fade-loop {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .35;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 
