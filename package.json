@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "vitest --project=storybook",
-    "icons:generate": "node scripts/sync-icon-exports.mjs"
+    "icons:generate": "node scripts/sync-icon-exports.mjs",
+    "vitest": "vitest"
   },
   "dependencies": {
     "@storybook/addon-styling-webpack": "^3.0.0",
@@ -28,6 +29,8 @@
     "@storybook/addon-onboarding": "^10.2.8",
     "@storybook/addon-vitest": "^10.2.8",
     "@storybook/react-vite": "^10.2.8",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
@@ -39,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "eslint-plugin-storybook": "^10.2.8",
     "globals": "^16.5.0",
+    "jsdom": "^29.1.1",
     "playwright": "^1.57.0",
     "storybook": "^10.2.8",
     "typescript": "~5.9.3",

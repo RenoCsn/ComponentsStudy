@@ -17,6 +17,9 @@ const dirname =
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
+    coverage: {
+      enabled: true,
+    },
     projects: [
       {
         extends: true,
@@ -40,6 +43,14 @@ export default defineConfig({
             ],
           },
           setupFiles: ['.storybook/vitest.setup.ts'],
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          environment: 'jsdom',
+          include: ['src/**/*.test.{ts,tsx}'],
         },
       },
     ],
