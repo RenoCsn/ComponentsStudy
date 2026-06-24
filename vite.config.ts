@@ -17,9 +17,6 @@ const dirname =
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
-    coverage: {
-      enabled: true,
-    },
     projects: [
       {
         extends: true,
@@ -49,6 +46,12 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'unit',
+          browser: {
+            provider: playwright(),
+            enabled: true,
+            headless: true,
+            instances: [{ browser: 'chromium' }],
+          },
           environment: 'jsdom',
           include: ['src/**/*.test.{ts,tsx}'],
         },

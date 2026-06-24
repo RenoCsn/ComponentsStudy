@@ -1,8 +1,12 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import { UseColor } from './useColor'
-import { act, renderHook } from '@testing-library/react'
+import { act, cleanup, renderHook } from '@testing-library/react'
 
 describe('useColor', () => {
+  afterEach(() => {
+    cleanup()
+  })
+
   it('Should return preset color correctly', () => {
     const color = 'primary'
     const { result } = renderHook(() => UseColor('text'))
