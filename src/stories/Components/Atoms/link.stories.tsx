@@ -88,7 +88,7 @@ export const Color: Story = {
   },
   args: {
     children: 'Link component',
-    color: 'info',
+    color: 'error',
     href: 'https://www.google.com/',
     target: '_blank',
   },
