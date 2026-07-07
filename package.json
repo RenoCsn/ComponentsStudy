@@ -17,7 +17,9 @@
     "vitest:unit": "vitest --project=unit",
     "vitest:storybook": "vitest --project=storybook",
     "coverage:unit": "vitest run --coverage --project=unit",
-    "coverage:storybook": "vitest run --coverage --project=storybook"
+    "coverage:storybook": "vitest run --coverage --project=storybook",
+    "test:e2e": "playwright test",
+    "test:e2e:screenshot": "playwright test --update-snapshots"
   },
   "dependencies": {
     "@storybook/addon-styling-webpack": "^3.0.0",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.61.1",
     "@storybook/addon-a11y": "^10.4.6",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/addon-onboarding": "^10.4.6",
