@@ -1,0 +1,5 @@
+npm run icons:generate
+git add src/Components/Icons/index.ts
+npm run vitest:unit
+npm run vitest:storybook
+npm run test:e2e

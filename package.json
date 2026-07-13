@@ -19,7 +19,8 @@
     "coverage:unit": "vitest run --coverage --project=unit",
     "coverage:storybook": "vitest run --coverage --project=storybook",
     "test:e2e": "playwright test",
-    "test:e2e:screenshot": "playwright test --update-snapshots"
+    "test:e2e:screenshot": "playwright test --update-snapshots",
+    "prepare": "husky"
   },
   "dependencies": {
     "@storybook/addon-styling-webpack": "^3.0.0",
@@ -50,6 +51,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "eslint-plugin-storybook": "^10.4.6",
     "globals": "^16.5.0",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "playwright": "^1.57.0",
     "storybook": "^10.4.6",
