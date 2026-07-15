@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ButtonComponent } from '../../../Components/Button'
-import { fn } from 'storybook/test'
+import { expect, fn } from 'storybook/test'
 
 const meta = {
   title: 'Atoms/Button',
@@ -214,5 +214,12 @@ export const OnClick: Story = {
   args: {
     children: 'Click me!',
     onClick: fn(),
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    const button = await canvas.findByRole('button', { name: 'Click me!' })
+
+    await userEvent.click(button)
+
+    await expect(args.onClick).toHaveBeenCalled()
   },
 }
