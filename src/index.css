@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Utilities built dynamically in src/utils/hooks/useColor.tsx */
-@source inline("visited:{fill,text,bg,border,decoration}-custom-{primary,secondary,success,error,info,warning}-{main,light,dark}");
+@source inline("{visited:,}{fill,text,bg,border,decoration}-custom-{primary,secondary,success,error,info,warning}-{main,light,dark}");
 
 @layer base {
     a:where(:any-link) {
