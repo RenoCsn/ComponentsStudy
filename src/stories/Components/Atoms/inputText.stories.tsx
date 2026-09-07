@@ -44,6 +44,26 @@ const meta = {
       control: { type: 'select' },
       options: Object.keys(Icons),
     },
+    iconPosition: {
+      control: { type: 'select' },
+      options: ['start', 'end'],
+      table: {
+        type: { summary: 'start | end' },
+        defaultValue: { summary: 'start' },
+      },
+    },
+    isIconButton: {
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onIconClick: {
+      table: {
+        type: { summary: '() => void' },
+      },
+    },
     classNameCustom: {
       table: {
         type: {
@@ -179,13 +199,79 @@ export const WithIcon: Story = {
   parameters: {
     docs: {
       description: {
-        storybook: 'Input with icon at the start or in the end.',
+        storybook:
+          'Decorative icon (default). The icon is visual only and not interactive.',
       },
     },
   },
   args: {
-    label: 'With Icon',
+    label: 'Search',
+    iconName: 'SearchIcon',
+    iconPosition: 'start',
+    placeholder: 'Search...',
+  },
+}
+
+export const WithIconEnd: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook: 'Decorative icon positioned at the end of the input.',
+      },
+    },
+  },
+  args: {
+    label: 'Email',
+    iconName: 'DoneIcon',
+    iconPosition: 'end',
+    placeholder: 'you@example.com',
+    type: 'email',
+  },
+}
+
+export const WithIconButton: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Interactive icon button. Set isIconButton and provide onIconClick to make the icon clickable (e.g. clear field, toggle visibility).',
+      },
+    },
+  },
+  args: {
+    label: 'Clearable input',
     iconName: 'DeleteIcon',
+    iconPosition: 'end',
+    defaultValue: 'Text to clear',
+    isIconButton: true,
+    onIconClick: fn(),
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    const iconButton = await canvas.findByRole('button')
+
+    await userEvent.click(iconButton)
+
+    await expect(args.onIconClick).toHaveBeenCalled()
+  },
+}
+
+export const WithIconButtonDisabled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        storybook:
+          'Icon button is disabled when the input is disabled.',
+      },
+    },
+  },
+  args: {
+    label: 'Disabled with icon button',
+    iconName: 'DeleteIcon',
+    iconPosition: 'end',
+    defaultValue: 'Cannot clear',
+    isDisabled: true,
+    isIconButton: true,
+    onIconClick: fn(),
   },
 }
 
