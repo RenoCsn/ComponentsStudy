@@ -16,4 +16,6 @@ export type InputType = ComponentType &
     errorText?: string
     iconName?: IconName
     iconPosition?: 'start' | 'end'
+    isIconButton?: boolean
+    onIconClick?: () => void
   }

@@ -16,6 +16,8 @@ export const InputComponent: React.FC<InputType> = ({
   iconName = undefined,
   iconPosition = 'start',
   classNameCustom,
+  isIconButton = false,
+  onIconClick,
   // id,
   ...props
 }: InputType) => {
@@ -65,6 +67,16 @@ export const InputComponent: React.FC<InputType> = ({
 
   const inputWrapperStyle = isFullWidth ? 'w-full' : 'w-fit self-start'
 
+  const iconWrapperClassName = `absolute top-1/2 -translate-y-1/2 ${iconAbsolutePos[iconPosition]}`
+
+  const iconElement = IconComponent ? (
+    <IconComponent
+      size={size}
+      color={color}
+      isDisabled={isDisabled || (isIconButton && isDisabled)}
+    />
+  ) : null
+
   return (
     <div className={`flex flex-col gap-1 ${widthStyle}`}>
       {label ? (
@@ -73,13 +85,19 @@ export const InputComponent: React.FC<InputType> = ({
         </label>
       ) : null}
       <div className={`relative ${inputWrapperStyle}`}>
-        {IconComponent ? (
-          <span
-            className={`absolute top-1/2 -translate-y-1/2 ${iconAbsolutePos[iconPosition]}`}
-          >
-            <IconComponent size={size} color={color} isDisabled={isDisabled} />
-          </span>
-        ) : null}
+        {IconComponent &&
+          (isIconButton ? (
+            <button
+              type='button'
+              className={`${iconWrapperClassName} cursor-pointer`}
+              onClick={onIconClick}
+              disabled={isDisabled}
+            >
+              {iconElement}
+            </button>
+          ) : (
+            <span className={iconWrapperClassName}>{iconElement}</span>
+          ))}
         <input
           id={inputId}
           disabled={isDisabled}
