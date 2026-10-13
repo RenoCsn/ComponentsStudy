@@ -18,7 +18,6 @@ export const InputComponent: React.FC<InputType> = ({
   classNameCustom,
   isIconButton = false,
   onIconClick,
-  // id,
   ...props
 }: InputType) => {
   const generatedId = useId()
